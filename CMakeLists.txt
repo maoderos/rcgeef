@@ -36,6 +36,19 @@ file(GLOB headers ${PROJECT_SOURCE_DIR}/include/*.hh)
 add_executable(rcgeef rcgeef.cc ${sources} ${headers})
 target_link_libraries(rcgeef ${Geant4_LIBRARIES})
 
+
+set(SCRIPTS
+  init_vis.mac
+  vis.mac
+  )
+
+foreach(_script ${SCRIPTS})
+	 configure_file(
+	   ${PROJECT_SOURCE_DIR}/${_script}
+	   ${PROJECT_BINARY_DIR}/${_script}
+	   COPYONLY
+	   )
+endforeach()
 #----------------------------------------------------------------------------
 # For internal Geant4 use - but has no effect if you build this
 # example standalone
@@ -46,5 +59,3 @@ add_custom_target(Rcgeef DEPENDS rcgeef)
 # Install the executable to 'bin' directory under CMAKE_INSTALL_PREFIX
 #
 install(TARGETS rcgeef DESTINATION bin)
-
-
