@@ -21,4 +21,4 @@ For enabling the visualization, copý the files `vis.mac` and `init_vis.mac` to 
 
 To run, type:
 
-`./rceegf`
+`./rcgeef`
